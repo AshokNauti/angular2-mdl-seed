@@ -20,7 +20,7 @@ export class PlaygroundComponent implements OnInit, AfterViewInit, OnDestroy {
     
     ngAfterViewInit() {
         console.log('PlaygroundComponent - ngAfterViewInit');
-		componentHandler.upgradeElement(this._elementRef.nativeElement);
+		componentHandler.upgradeAllRegistered();
     }
     
     ngOnDestroy() {
