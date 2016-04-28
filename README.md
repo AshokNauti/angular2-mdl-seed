@@ -1,1 +1,1 @@
-# angular2-mdl-seed
+# Angular2 + Material Design Lite seed project
