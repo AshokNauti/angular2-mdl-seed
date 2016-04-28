@@ -1,13 +1,16 @@
-import {Component, OnInit, AfterViewInit, OnDestroy} from  'angular2/core';
+import {Component, ViewEncapsulation, Inject, ElementRef, OnInit, AfterViewInit, OnDestroy} from  'angular2/core';
+
+declare var componentHandler: any;
 
 @Component({
     selector: 'playground',
     templateUrl: './app/playground/playground.component.html',
-    styleUrls: ['./app/playground/playground.component.css']
+    styleUrls: ['./app/playground/playground.component.css'],
+	encapsulation: ViewEncapsulation.None
 })
 export class PlaygroundComponent implements OnInit, AfterViewInit, OnDestroy {
     
-    constructor() {
+    constructor( @Inject(ElementRef) private _elementRef: ElementRef) {
         
     }
     
@@ -17,6 +20,7 @@ export class PlaygroundComponent implements OnInit, AfterViewInit, OnDestroy {
     
     ngAfterViewInit() {
         console.log('PlaygroundComponent - ngAfterViewInit');
+		componentHandler.upgradeElement(this._elementRef.nativeElement);
     }
     
     ngOnDestroy() {
