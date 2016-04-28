@@ -1,0 +1,50 @@
+/* Variables */
+$font-stack: 'Roboto', 'Roboto', 'Helvetica Neue, Helvetica, Arial', sans-serif;
+$primary-color: #000;
+$secondary-color: #fff;
+
+$hovered-color: rgb(0, 0, 0);
+$hovered-background-color: rgb(76, 175, 80);
+
+$table-background-color: #fff;
+$table-border-color: #e0e0e0;
+$table-header-hovered-background-color: rgb(76, 175, 80);
+$table-header-hovered-color: rgb(0, 0, 0);
+
+/* Unselectable field */
+@mixin pb-unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hoverable */
+@mixin pb-hoverable {
+    cursor: pointer;
+    color: $hovered-color !important;
+    background-color: $hovered-background-color !important;
+}
+
+/* Table specific */
+@mixin pb-table-header-hoverable {
+    @include pb-hoverable;
+    background: $table-header-hovered-background-color;
+    color: $table-header-hovered-color;
+}
+
+.unselectable {
+    @include pb-unselectable;
+}
+.hoverable {
+    @include pb-hoverable;
+}
+.pb-table-header {
+    @include pb-unselectable;
+}
+.pb-table-header-hoverable {
+    @include pb-unselectable;
+    @include pb-table-header-hoverable;
+}
